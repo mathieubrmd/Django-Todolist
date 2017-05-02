@@ -1,0 +1,39 @@
+{% include './header.html' %}
+    <a href="/add" class="ui button basic positive">Create new todo</a>
+    <table class="ui celled striped table">
+        <thead>
+            <tr>
+                <th>
+                Name
+                </th>
+                <th>
+                Text
+                </th>
+                <th>
+                Date
+                </th>
+                <th>
+                Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for todo in todos %}
+            <tr>
+                <td>
+                  <b>{{ todo.title }}</b>
+                </td>
+                <td>{{ todo.text }}</td>
+                <td class="right aligned collapsing">{{ todo.created_at }}</td>
+                <td>
+                    <a href="/edit/{{ todo.id }}" class="ui button primary" style="float:left">Edit</a>
+                    <form action="/delete/{{ todo.id }}/" method="post" style="float:left">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete" href="/delete/{{ todo.id }}" class="ui button negative"/>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% include './footer.html' %}

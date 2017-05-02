@@ -1,0 +1,17 @@
+{% include './header.html' %}
+<form action="/add" method="post">
+    {% csrf_token %}
+    <div class="ui form">
+        <br>
+        {{ form.title.label }}
+        {{ form.title }}
+        <br>
+        <br>
+        {{ form.text.label }}
+        {{ form.text }}
+        <br>
+        <br>
+        <input type="submit" value="Save" class="ui button positive"/>
+    </div>
+</form>
+{% include './footer.html' %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+</head>
+<body>
+<div class="ui container">
+    <br>
+    <h1 class="ui header">Todo list</h1>
+    {% if messages %}
+        {% for message in messages %}
+        <div {% if message.tags %} class="ui message {{ message.tags }}"{% endif %}>
+            <i class="close icon"></i>
+            {{ message }}
+        </div>
+
+        {% endfor %}
+    {% endif %}
