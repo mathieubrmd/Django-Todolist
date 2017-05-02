@@ -14,8 +14,7 @@
     {% if messages %}
         {% for message in messages %}
         <div {% if message.tags %} class="ui message {{ message.tags }}"{% endif %}>
-            <i class="close icon"></i>
-            {{ message }}
+            {{ message | safe }}
         </div>
 
         {% endfor %}

@@ -56,7 +56,7 @@ def detail(request, id):
 def delete(request, id):
     if (request.method == "POST"):
         todo = Todo.objects.get(pk=id)
-        messages.error(request, 'The todo has been successfully deleted')
+        messages.error(request, 'The todo "' + todo.title + '" has been successfully deleted')
         todo.delete()
         return redirect('/')
 
